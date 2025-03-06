@@ -3,18 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Assistant</title>
+    <title>Know it All - AI Assistant</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="voice.js" defer></script>
+    <script src="camera.js" defer></script>
 </head>
 <body>
+    <div class="sidebar" id="sidebar">
+        <h3>Previous Requests</h3>
+        <ul id="requestHistory"></ul>
+    </div>
     <div class="chat-container">
-        <div class="chat-header">🤖 AI Assistant</div>
+        <div class="chat-header">
+            <img src="droplet.gif" alt="AI Icon" class="ai-icon">
+            <h1>Know it All</h1>
+        </div>
         <div id="chatbox" class="chat-box"></div>
         <div class="input-container">
-            <input type="text" id="userInput" placeholder="Ask me anything..." autofocus>
+            <input type="text" id="userInput" placeholder="Ask me anything...">
             <button onclick="sendMessage()">Send</button>
+            <button onclick="startVoice()" class="mic-button">🎤</button>
+        </div>
+        <div class="file-upload">
+            <input type="file" id="fileInput" multiple>
+            <button onclick="uploadFiles()">Upload Files</button>
+        </div>
+        <div class="camera-container">
+            <video id="video" autoplay></video>
+            <button onclick="takePicture()">📷 Capture</button>
+            <canvas id="canvas"></canvas>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
