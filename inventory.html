@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Inventory Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>AI Inventory Assistant</h1>
+    <input type="text" id="question" placeholder="Ask about inventory...">
+    <button onclick="askAI()">Ask</button>
+    <p id="aiResponse"></p>
+
+    <script>
+        function askAI() {
+            let question = document.getElementById("question").value;
+            fetch("https://your-app.onrender.com/ask-ai", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: question })
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById("aiResponse").innerText = data.answer);
+        }
+    </script>
+</body>
+</html>
